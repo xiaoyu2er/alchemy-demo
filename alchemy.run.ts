@@ -8,7 +8,7 @@ const app = await alchemy("alchemy-demo", {
 });
 
 const counter = DurableObjectNamespace("counter", {
-  className: "Counter",
+  className: "MyCounter",
   // whether you want a sqllite db per DO (usually yes!)
   sqlite: true,
 });
