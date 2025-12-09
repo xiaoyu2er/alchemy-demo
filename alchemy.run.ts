@@ -1,15 +1,25 @@
 import alchemy from "alchemy";
-import { Worker, } from "alchemy/cloudflare";
 import { GitHubComment } from "alchemy/github";
 import { CloudflareStateStore } from "alchemy/state";
+import { Worker, DurableObjectNamespace } from "alchemy/cloudflare";
 
 const app = await alchemy("alchemy-demo", {
   stateStore: (scope) => new CloudflareStateStore(scope),
-  
+});
+
+const counter = DurableObjectNamespace("counter", {
+  className: "Counter",
+  // whether you want a sqllite db per DO (usually yes!)
+  sqlite: true,
 });
 
 export const worker = await Worker("worker", {
   entrypoint: "src/worker.ts",
+  url: true,
+  bindings: {
+    // bind the Durable Object namespace to your Worker
+    COUNTER: counter,
+  },
 });
 
 console.log(worker.url);
