@@ -1,0 +1,21 @@
+{
+  "name": "alchemy-demo",
+  "version": "0.0.0",
+  "description": "Alchemy Typescript Project",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "deploy": "alchemy deploy",
+    "destroy": "alchemy destroy",
+    "dev": "alchemy dev"
+  },
+  "devDependencies": {
+    "alchemy": "0.80.1",
+    "@cloudflare/workers-types": "^4.20250805.0",
+    "miniflare": "^4.20250617.3",
+    "@types/node": "^24.0.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {},
+  "packageManager": "pnpm@10.9.0"
+}
