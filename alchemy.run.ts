@@ -32,17 +32,16 @@ if (process.env.PULL_REQUEST) {
     owner: "xiaoyu2er",
     repository: "alchemy-demo",
     issueNumber: Number(process.env.PULL_REQUEST),
-    body: `
-     ## 🚀 Preview Deployed
+    body: `## 🚀 Preview Deployed
 
-     Your changes have been deployed to a preview environment:
+Your changes have been deployed to a preview environment:
 
-     **🌐 Worker:** ${worker.url}
+**🌐 Worker:** ${worker.url}
 
-     Built from commit ${process.env.GITHUB_SHA?.slice(0, 7)}
+Built from commit ${process.env.GITHUB_SHA?.slice(0, 7)}
 
-     ---
-     <sub>🤖 This comment updates automatically with each push.</sub>`,
+---
+<sub>🤖 This comment updates automatically with each push.</sub>`,
   });
 }
 
